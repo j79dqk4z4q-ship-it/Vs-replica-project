@@ -22,6 +22,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: var(--vscode-editor-background);
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -42,10 +43,6 @@ body {
     flex-direction: column;
 }
 
-.monitor-glow {
-    /* removed */
-}
-
 .screen {
     flex: 1;
     display: flex;
@@ -60,7 +57,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 40%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 40%);
     pointer-events: none;
     z-index: 100;
 }
@@ -72,7 +69,6 @@ body {
     align-items: center;
     border-bottom: 1px solid var(--vscode-panel-border);
     user-select: none;
-    app-region: drag;
     position: relative;
 }
 
@@ -101,23 +97,46 @@ body {
 
 .window-menu span {
     cursor: default;
-    padding: 4px 6px;
+    padding: 4px 8px;
     border-radius: 4px;
+    font-size: 13px;
+    color: #cccccc;
 }
 
 .window-menu span:hover {
-    background: var(--vscode-panel-background);
+    background: rgba(90, 93, 94, 0.31);
+}
+
+.window-menu span.menu-active {
+    background: rgba(90, 93, 94, 0.31);
+}
+
+/* File type icon colors - Seti-inspired */
+.html-icon { color: #e44d26 !important; }
+.css-icon { color: #42a5f5 !important; }
+.js-icon { color: #f7df1e !important; }
+.json-icon { color: #cbcb41 !important; }
+.md-icon { color: #519aba !important; }
+.folder-icon { color: #dcb67a !important; }
+
+/* Icon general styling */
+.icon, .tab-icon {
+    font-size: 16px;
+    margin-right: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dropdown-menu {
     position: absolute;
     top: 35px;
     left: 0;
-    background: var(--vscode-panel-background);
-    border: 1px solid var(--vscode-panel-border);
+    background: #1f1f1f;
+    border: 1px solid #454545;
     border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    min-width: 200px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    min-width: 240px;
     display: none;
     z-index: 1000;
     padding: 4px 0;
@@ -135,7 +154,8 @@ body {
 }
 
 .dropdown-menu .menu-item:hover {
-    background: var(--vscode-tab-inactiveBackground);
+    background: #04395e;
+    color: #ffffff;
 }
 
 .menu-separator {
@@ -186,7 +206,8 @@ body {
     transition: all 0.15s ease-in-out;
     position: relative;
     user-select: none;
-    border-radius: 8px; /* Standard VS Code bubble radius */
+    border-radius: 8px;
+    /* Standard VS Code bubble radius */
     margin-bottom: 2px;
 }
 
@@ -199,21 +220,26 @@ body {
 
 .activity-icon:hover {
     color: var(--vscode-editor-foreground);
-    background: rgba(169, 177, 214, 0.08); /* Hover fade */
+    background: rgba(169, 177, 214, 0.08);
+    /* Hover fade */
 }
 
 .activity-icon:hover svg {
-    transform: scale(1.05); /* very subtle scale */
+    transform: scale(1.05);
+    /* very subtle scale */
 }
 
 .activity-icon.active {
-    color: var(--vscode-activityBar-foreground); /* Crisp readable active color */
-    background: rgba(169, 177, 214, 0.12); /* Active background squircle */
+    color: var(--vscode-activityBar-foreground);
+    /* Crisp readable active color */
+    background: rgba(169, 177, 214, 0.12);
+    /* Active background squircle */
     border-left: 3px solid var(--vscode-activityBar-activeBorder);
 }
 
 .activity-icon.active svg {
-    filter: none; /* Removed neon dropshadows for a clean modern look */
+    filter: none;
+    /* Removed neon dropshadows for a clean modern look */
 }
 
 .sidebar {
@@ -281,6 +307,7 @@ body {
     color: #565f89;
     transition: transform 0.1s;
 }
+
 .chevron.collapsed {
     transform: rotate(-90deg);
 }
@@ -381,7 +408,7 @@ body {
     padding: 0 15px;
     font-size: 12px;
     color: #565f89;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .breadcrumb span {
@@ -435,7 +462,8 @@ body {
 
 .code-input-hint {
     margin-left: auto;
-    color: #565f89; /* Keep subtle hint color */
+    color: #565f89;
+    /* Keep subtle hint color */
     font-size: 11px;
 }
 
@@ -459,7 +487,8 @@ body {
 .line-number {
     font-family: 'Fira Code', monospace;
     font-size: 13px;
-    color: #3b4261; /* Line number color usually dark even in light themes */
+    color: #3b4261;
+    /* Line number color usually dark even in light themes */
     text-align: right;
     padding: 0 10px;
     line-height: 1.5;
@@ -499,7 +528,7 @@ body {
     background: var(--vscode-panel-background);
     border: 1px solid var(--vscode-panel-border);
     border-radius: 4px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     z-index: 100;
     min-width: 250px;
 }
@@ -568,14 +597,39 @@ body {
     user-select: none;
 }
 
-.hljs-keyword { color: #bb9af7; }
-.hljs-string { color: #9ece6a; }
-.hljs-function, .cyan { color: #7dcfff; }
-.hljs-title { color: #7aa2f7; }
-.pink { color: #f7768e; }
-.white, .plain { color: #c0caf5; }
-.hljs-number { color: #ff9e64; }
-.hljs-params { color: #e0af68; }
+.hljs-keyword {
+    color: #bb9af7;
+}
+
+.hljs-string {
+    color: #9ece6a;
+}
+
+.hljs-function,
+.cyan {
+    color: #7dcfff;
+}
+
+.hljs-title {
+    color: #7aa2f7;
+}
+
+.pink {
+    color: #f7768e;
+}
+
+.white,
+.plain {
+    color: #c0caf5;
+}
+
+.hljs-number {
+    color: #ff9e64;
+}
+
+.hljs-params {
+    color: #e0af68;
+}
 
 .terminal-panel {
     height: 180px;
@@ -629,17 +683,34 @@ body {
     color: var(--vscode-editor-foreground);
 }
 
-.terminal-panel > div:not(.terminal-header):not(.terminal-line) {
+.terminal-panel>div:not(.terminal-header):not(.terminal-line) {
     padding: 0 20px;
     font-family: 'Fira Code', 'Courier New', monospace;
     font-size: 13px;
 }
 
 /* Scrollbars */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #3b4261; border-radius: 5px; border: 2px solid transparent; background-clip: content-box; }
-::-webkit-scrollbar-thumb:hover { background: #565f89; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b4261;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #565f89;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
 
 /* Theme picker */
 .theme-toggle {
@@ -797,12 +868,21 @@ body {
 }
 
 .window-app-icon {
-    width: 48px;
-    height: 35px;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    width: 35px;
+    height: 35px;
     margin: 0;
     padding: 0;
-    color: #cccccc;
+    cursor: default;
+}
+
+.window-app-icon img {
+    width: 18px;
+    height: 18px;
+    user-select: none;
+    pointer-events: none;
 }
 
 .window-app-icon .codicon {
@@ -810,7 +890,12 @@ body {
 }
 
 .window-menu {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    color: #cccccc;
+    font-size: 13px;
+    margin-left: 0;
 }
 
 .titlebar-nav {
@@ -951,7 +1036,7 @@ body {
 }
 
 .folder {
-    color: #dcb67a;
+    color: #cccccc;
 }
 
 .git-indicator {
@@ -1086,7 +1171,7 @@ body {
     color: #6a6a6a;
 }
 
-.main-editor > .editor-content {
+.main-editor>.editor-content {
     display: none !important;
 }
 
@@ -1179,4 +1264,12 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #424242;
     border-radius: 0;
+}
+
+.sidebar-hidden {
+    display: none !important;
+}
+
+.panel-hidden {
+    display: none !important;
 }
